@@ -1,0 +1,31 @@
+{
+  "name": "node-nyaa-api",
+  "version": "0.0.1",
+  "description": "Nyaa.se API wrapper for the Node.js platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bakaboykie/node-nyaa-api.git"
+  },
+  "keywords": [
+    "nyaa.se",
+    "nyaa",
+    "anime",
+    "api"
+  ],
+  "author": "Bakaboykie",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/bakaboykie/node-nyaa-api/issues"
+  },
+  "homepage": "https://github.com/bakaboykie/node-nyaa-api#readme",
+  "dependencies": {
+    "feed-read": "0.0.1",
+    "install": "^0.4.1",
+    "npm": "^3.5.2",
+    "request": "^2.67.0"
+  }
+}
