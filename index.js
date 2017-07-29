@@ -1,7 +1,7 @@
 var request = require('request');
 var feed = require("feed-read");
 
-var Nyaa = (function(optionalDefaultChange) {
+var Nyaa = (function() {
 
 	if (!Object.entries) {
 		Object.prototype.entries = (obj) => {
@@ -13,8 +13,8 @@ var Nyaa = (function(optionalDefaultChange) {
 	}
 
 	var queryDefault = {
-		filter: optionalDefaultChange.filter || '0',
-		category: optionalDefaultChange.category || '1_2'
+		filter: '0',
+		category: '1_2'
 	};
 	
     var _getLatest = function(callback) {
