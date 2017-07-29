@@ -23,3 +23,10 @@ Nyaa.search({
 }, function(err, articles) {
     // ...
 });
+
+Nyaa.get_latest({
+    category: '1_2', // English translation,
+    filter: 1 // No Remakes
+}, function(err, articles) {
+    // ...
+});
