@@ -13,8 +13,8 @@ var Nyaa = (function() {
 	}
 
 	var queryDefault = {
-		filter: '0',
-		category: '1_2'
+		filter: '0', // No filter
+		category: '0_0' // All categories
 	};
 	
     var _getLatest = function(obj, callback) {
