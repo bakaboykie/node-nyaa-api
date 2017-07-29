@@ -17,8 +17,8 @@ var Nyaa = (function() {
 		category: '1_2'
 	};
 	
-    var _getLatest = function(callback) {
-        feed('http://www.nyaa.si/?page=rss&f=' + queryDefault.filter + '&c=' + queryDefault.category, callback);
+    var _getLatest = function(obj, callback) {
+		feed('http://www.nyaa.si/?page=rss&f=' + (obj.filter || queryDefault.filter) + '&c=' + (obj.category || queryDefault.category), (typeof obj === 'object' && obj !== null) ? callback : obj);
     };
     var _search = function(term, callback) { // simplify
 		let url = 'https://nyaa.si/?page=rss&';
