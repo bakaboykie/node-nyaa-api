@@ -14,3 +14,12 @@ Nyaa.search('danshi nichijou', function(err, articles) {
     for (var article in articles)
         console.log(articles[article].title);
 });
+
+// Proposed
+Nyaa.search({
+    category: '1_4', // RAWs
+    filter: 2, // Trusted only
+    term: 'Neon Genesis Evangelion'
+}, function(err, articles) {
+    // ...
+});
