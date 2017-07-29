@@ -1,16 +1,36 @@
 var request = require('request');
 var feed = require("feed-read");
 
-var Nyaa = (function() {
+var Nyaa = (function(optionalDefaultChange) {
 
+	if (!Object.entries) {
+		Object.prototype.entries = (obj) => {
+			let arr = [];
+			for (var key in obj)
+				arr.push([key, obj[key]]);
+			return arr;
+		};
+	}
+
+	var queryDefault = {
+		filter: optionalDefaultChange.filter || '0',
+		category: optionalDefaultChange.category || '1_2'
+	};
+	
     var _getLatest = function(callback) {
-        feed('http://www.nyaa.se/?page=rss&cats=1_37', callback);
+        feed('http://www.nyaa.si/?page=rss&f=' + queryDefault.filter + '&c=' + queryDefault.category, callback);
     };
-
-    var _search = function(term, callback) {
-        var url = 'http://www.nyaa.se/?page=rss&cats=1_37&filter=0&term=';
-        url = url + term.split(' ').join('+');
-        feed(url, callback);
+    var _search = function(term, callback) { // simplify
+		let url = 'https://nyaa.si/?page=rss&';
+		url += Object.entries({
+			c: term.category || queryDefault.category,
+			f: term.filter || queryDefault.filter,
+			q: term.term.split(' ').join('+') || term.split(' ').join('+')
+		})
+		.map(entry => {
+			return entry.join('=');
+		}).join('&');
+		feed(url, callback);
     };
 
     return {
